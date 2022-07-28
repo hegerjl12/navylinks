@@ -66,6 +66,16 @@ def st_button(icon, url, label, iconsize):
                 {label}
             </a>
         </p>'''
+    elif icon == 'clipboard':
+        button_code = f'''
+        <p>
+            <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-clipboard-fill" viewBox="0 0 16 16">
+                    <path d="M1 2a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1h.5A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-.55a2.5 2.5 0 0 1-2.45 2h-8A2.5 2.5 0 0 1 1 12.5V2zm13 10h.5a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5H14v8z"/>
+                </svg>
+                {label}
+            </a>
+        </p>'''
     elif icon == '':
         button_code = f'''
         <p>
