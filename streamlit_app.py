@@ -9,7 +9,6 @@ def main():
   st.set_page_config(
      page_title="Navy Links",
      page_icon="🔗",
-     layout="wide",
 )
   
   load_css()
