@@ -23,7 +23,7 @@ def main():
   icon_size = 20
   
   st_button('clipboard', 'https://asm3.nmci.navy.mil/ASM3/cac?utm_source=mnp%20public', 'ASM', icon_size)
-  st_button('', 'https://www.bol.navy.mil/bam/?utm_source=mnp%20public', 'BOL', icon_size)
+  st_button('person', 'https://www.bol.navy.mil/bam/?utm_source=mnp%20public', 'BOL', icon_size)
 
   st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
   
