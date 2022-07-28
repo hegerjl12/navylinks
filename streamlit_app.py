@@ -18,7 +18,7 @@ def main():
 
   st.header('Navy Links')
 
-  st.info('Useful Webpage Links')
+  #st.info('Useful Webpage Links')
 
   icon_size = 20
   
