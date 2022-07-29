@@ -96,16 +96,16 @@ def st_button(icon, url, label, iconsize):
                 {label}
             </a>
         </p>'''
-    elif icon == 'lock':
-        button_code = f'''
-        <p>
-            <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                </svg>
-                {label}
-            </a>
-        </p>'''
+   # elif icon == 'lock':
+   #     button_code = f'''
+   #     <p>
+   #         <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
+   #             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+   #                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+   #             </svg>
+   #             {label}
+   #         </a>
+   #     </p>'''
     elif icon == 'safe':
         button_code = f'''
         <p>
