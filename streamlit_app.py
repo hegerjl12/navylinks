@@ -32,6 +32,8 @@ def main():
   st_button('money', 'https://mypay.dfas.mil/#/', 'myPay', icon_size)
   st_button('info', 'https://navyfamily.navy.mil/cas/login?service?utm_source=mnp%20public', 'NFAAS', icon_size)
   st_button('person', 'https://www.nsips.navy.mil/?utm_source=mnp%20public', 'NSIPS', icon_size)
+  st_button('stats', 'https://www.mnp.navy.mil/group/performance/prims?utm_source=mnp%20public', 'PRIMS', icon_size)
+
 
   
 
