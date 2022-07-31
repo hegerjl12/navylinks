@@ -13,12 +13,9 @@ def main():
   
   load_css()
 
-  col1, col2 = st.columns(2)
-  #col2.image(Image.open('dp.png'))
-
   st.header('Navy Links')
 
-  #st.info('Useful Webpage Links')
+  col1, col2 = st.columns(2)
 
   icon_size = 20
 
