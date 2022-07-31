@@ -56,8 +56,8 @@ def main():
     st_button('email', 'https://webmail.west.nmci.navy.mil/exchange/', 'Webmail West', icon_size)
     st_button('email2', 'https://portal.apps.mil/default.aspx', 'Flankspeed Portal', icon_size)
 
-st.write()
-st.write()
+st.write('')
+st.write('')
 st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
     
 if __name__ == "__main__":
