@@ -13,7 +13,7 @@ def main():
   
   load_css()
 
-  col1, col2, col3 = st.columns(3)
+  #col1, col2, col3 = st.columns(3)
   #col2.image(Image.open('dp.png'))
 
   st.header('Navy Links')
