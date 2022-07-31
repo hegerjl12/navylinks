@@ -46,7 +46,6 @@ def main():
     st_button('money', 'https://mypay.dfas.mil/#/', 'myPay', icon_size)
     st_button('ndds', 'https://ndds.navair.navy.mil/', 'NDDS', icon_size)
     st_button('info', 'https://navyfamily.navy.mil/cas/login?service?utm_source=mnp%20public', 'NFAAS', icon_size)
-    st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
     st_button('person', 'https://www.nsips.navy.mil/?utm_source=mnp%20public', 'NSIPS', icon_size)
     st_button('report', 'https://ntira.nmci.navy.mil/', 'NTIRA', icon_size)
     st_button('fitness', 'https://www.mnp.navy.mil/group/performance/parfq?utm_source=mnp%20public', 'PARFQ', icon_size)
@@ -57,6 +56,9 @@ def main():
     st_button('email', 'https://webmail.west.nmci.navy.mil/exchange/', 'Webmail West', icon_size)
     st_button('email2', 'https://portal.apps.mil/default.aspx', 'Flankspeed Portal', icon_size)
 
+st.write()
+st.write()
+st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
     
 if __name__ == "__main__":
   main()
