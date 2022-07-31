@@ -22,6 +22,7 @@ def main():
 
   icon_size = 20
   
+  st_button('safety', 'https://asap.safety.af.mil/#/', 'ASAP', icon_size)
   st_button('clipboard', 'https://asm3.nmci.navy.mil/ASM3/cac?utm_source=mnp%20public', 'ASM', icon_size)
   st_button('card', 'https://aircardsys.com/cgi-bin/fbo_locate', 'Air Card FBO Locator', icon_size)
   st_button('person', 'https://www.bol.navy.mil/bam/?utm_source=mnp%20public', 'BOL', icon_size)
