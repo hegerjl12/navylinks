@@ -60,7 +60,7 @@ def main():
   st.write('')
   col3, col4, col5, col6, col7 = st.columns(5)
 
-  with col1:
+  with col5:
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
     
 if __name__ == "__main__":
