@@ -58,9 +58,12 @@ def main():
 
   st.write('')
   st.write('')
-  col3, col4, col5, col6, col7 = st.columns(5)
+  st.write('')
+  st.write('')
 
-  with col5:
+  col3, col4, col5 = st.columns(3)
+
+  with col4:
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
     
 if __name__ == "__main__":
