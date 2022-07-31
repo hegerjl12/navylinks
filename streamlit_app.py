@@ -60,6 +60,10 @@ def main():
   st.write('')
   st.write('')
   st.write('')
+  st.write('')
+  st.write('')
+  st.write('')
+  st.write('')
 
   col3, col4, col5 = st.columns(3)
 
