@@ -74,7 +74,7 @@ def st_button(icon, url, label, iconsize):
                     <path d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
                 </svg>
                 {label}
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="24" fill="currentColor" class="bi bi-key-fill" viewBox="0 14 19 14">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="24" fill="currentColor" class="bi bi-key-fill" viewBox="0 14 13 8">
                     <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                 </svg>
             </a>
