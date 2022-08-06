@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
+import streamlit.components.v1 as components
 
 def main():
   
@@ -15,7 +16,7 @@ def main():
 
   st.header('Navy Links')
 
-  html_string = '''
+  components.html('''
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
 <script>
@@ -25,9 +26,7 @@ def main():
 
   gtag('config', 'G-ECZ57RBDL6');
 </script>
-'''
-
-  st.markdown(html_string, unsafe_allow_html=True)
+''')
 
   col1, col2 = st.columns(2)
 
