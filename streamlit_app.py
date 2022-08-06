@@ -17,7 +17,6 @@ def main():
   st.header('Navy Links')
 
   components.html('''
-  <head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
 <script>
@@ -27,7 +26,6 @@ def main():
 
   gtag('config', 'G-ECZ57RBDL6');
 </script>
-</head>
 ''')
 
   col1, col2 = st.columns(2)
