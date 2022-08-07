@@ -4,40 +4,6 @@ import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
 import streamlit.components.v1 as components
-import pathlib
-
-def inject_ga():
-    """Add this in your streamlit app.py
-    see https://github.com/streamlit/streamlit/issues/969
-    """
-    # new tag method
-    GA_ID = "google_analytics"
-    # NOTE: you should add id="google_analytics" value in the GA script
-    # https://developers.google.com/analytics/devguides/collection/analyticsjs
-    GA_JS = """
-<!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-ECZ57RBDL6');
-  </script>
-"""
-    # Insert the script in the head tag of the static template inside your virtual
-    index_path = pathlib.Path(st.__file__).parent / "static" / "index.html"
-    logging.info(f'editing {index_path}')
-    soup = BeautifulSoup(index_path.read_text(), features="lxml")
-    if not soup.find(id=GA_ID):  # if cannot find tag
-        bck_index = index_path.with_suffix('.bck')
-        if bck_index.exists():
-            shutil.copy(bck_index, index_path)  # recover from backup
-        else:
-            shutil.copy(index_path, bck_index)  # keep a backup
-        html = str(soup)
-        new_html = html.replace('<head>', '<head>\n' + GA_JS)
-        index_path.write_text(new_html)
 
 def main():
   
@@ -61,6 +27,8 @@ def main():
   </script>
   </head>
   ''')
+
+  components.iframe('https://covid19.aipert.org/google_analytics.html', height=1, scrolling=False)
 
   load_css()
 
