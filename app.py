@@ -4,6 +4,7 @@ import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
 import streamlit.components.v1 as components
+import os
 
 def main():
   
@@ -12,8 +13,8 @@ def main():
      page_title="Navy Links",
      page_icon="🔗",  
   )
-  
-  components.html('''
+
+anlytcs_code = '''
     <head>
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
@@ -25,9 +26,27 @@ def main():
     gtag('config', 'G-ECZ57RBDL6');
   </script>
   </head>
-  ''')
+  '''
 
-  components.iframe('https://https://navylinks-dev.herokuapp.com/index.html', height=1, scrolling=False)
+  # Fetch the path of the index.html file
+path_ind = os.path.dirname(st.__file__)+'/static/index.html'
+
+# Open the file
+with open(path_ind, 'r') as index_file:
+    data=index_file.read()
+
+    # Check whether there is GA script
+    if len(re.findall('UA-', data))==0:
+
+        # Insert Script for Google Analytics
+        with open(path_ind, 'w') as index_file_f:
+
+            # The Google Analytics script should be pasted in the header of the HTML file
+            newdata=re.sub('<head>','<head>'+anlytcs_code,data)
+
+            index_file_f.write(newdata)
+
+
 
   load_css()
 
