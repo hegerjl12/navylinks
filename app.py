@@ -3,14 +3,27 @@ import streamlit as st
 import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
+import streamlit.components.v1 as components
 
 def main():
   
   st.set_page_config(
      page_title="Navy Links",
-     page_icon="🔗",
-)
+     page_icon="🔗",  
+  )
   
+  components.html('''
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ECZ57RBDL6');
+  </script>
+  ''')
+
   load_css()
 
   st.header('Navy Links')
