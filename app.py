@@ -14,37 +14,37 @@ def main():
      page_icon="🔗",  
   )
 
-anlytcs_code = '''
-    <head>
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  anlytcs_code = '''
+      <head>
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-ECZ57RBDL6');
-  </script>
-  </head>
-  '''
+      gtag('config', 'G-ECZ57RBDL6');
+    </script>
+    </head>
+    '''
 
-  # Fetch the path of the index.html file
-path_ind = os.path.dirname(st.__file__)+'/static/index.html'
+    # Fetch the path of the index.html file
+  path_ind = os.path.dirname(st.__file__)+'/static/index.html'
 
-# Open the file
-with open(path_ind, 'r') as index_file:
-    data=index_file.read()
+  # Open the file
+  with open(path_ind, 'r') as index_file:
+      data=index_file.read()
 
-    # Check whether there is GA script
-    if len(re.findall('UA-', data))==0:
+      # Check whether there is GA script
+      if len(re.findall('UA-', data))==0:
 
-        # Insert Script for Google Analytics
-        with open(path_ind, 'w') as index_file_f:
+          # Insert Script for Google Analytics
+          with open(path_ind, 'w') as index_file_f:
 
-            # The Google Analytics script should be pasted in the header of the HTML file
-            newdata=re.sub('<head>','<head>'+anlytcs_code,data)
+              # The Google Analytics script should be pasted in the header of the HTML file
+              newdata=re.sub('<head>','<head>'+anlytcs_code,data)
 
-            index_file_f.write(newdata)
+              index_file_f.write(newdata)
 
 
 
