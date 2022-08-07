@@ -27,7 +27,7 @@ def main():
   </head>
   ''')
 
-  components.iframe('https://covid19.aipert.org/google_analytics.html', height=1, scrolling=False)
+  components.iframe('https://https://navylinks-dev.herokuapp.com/index.html', height=1, scrolling=False)
 
   load_css()
 
