@@ -7,7 +7,6 @@ import streamlit.components.v1 as components
 
 def main():
   
-  inject_ga()
   
   st.set_page_config(
      page_title="Navy Links",
