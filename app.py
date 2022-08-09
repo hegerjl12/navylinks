@@ -4,11 +4,12 @@ import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
 import streamlit.components.v1 as components
-import streamlit_analytics
 
 def main():
   
-  steamlit_analytics.start_tracking()
+  components.html('''<script async src="//static.getclicky.com/101376338.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376338ns.gif" /></p></noscript>''')
+
 
   st.set_page_config(
      page_title="Navy Links",
@@ -74,7 +75,6 @@ def main():
   with col4:
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
 
-  streamlit_analytics.stop_tracking(unsafe_password="housecat")
     
 if __name__ == "__main__":
   main()
