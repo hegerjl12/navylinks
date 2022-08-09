@@ -12,8 +12,7 @@ def main():
      page_icon="🔗",  
   )
 
-  components.html('''<script async src="//static.getclicky.com/101376338.js"></script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376338ns.gif" /></p></noscript>''')
+  components.html('''<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>''')
 
 
   load_css()
