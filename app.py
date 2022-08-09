@@ -6,15 +6,15 @@ from PIL import Image
 import streamlit.components.v1 as components
 
 def main():
-  
-  components.html('''<script async src="//static.getclicky.com/101376338.js"></script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376338ns.gif" /></p></noscript>''')
-
 
   st.set_page_config(
      page_title="Navy Links",
      page_icon="🔗",  
   )
+
+  components.html('''<script async src="//static.getclicky.com/101376338.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376338ns.gif" /></p></noscript>''')
+
 
   load_css()
 
