@@ -12,17 +12,6 @@ def main():
      page_icon="🔗",  
   )
 
-  components.html('''<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ECZ57RBDL6');
-</script>''')
-  components.html('''<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>''')
-
 
   load_css()
 
@@ -69,14 +58,17 @@ def main():
     st_button('email', 'https://webmail.west.nmci.navy.mil/exchange/', 'Webmail West', icon_size)
     st_button('email2', 'https://portal.apps.mil/default.aspx', 'Flankspeed Portal', icon_size)
 
-  st.write('')
-  st.write('')
-  st.write('')
-  st.write('')
-  st.write('')
-  st.write('')
-  st.write('')
-  st.write('')
+ components.html('''<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ECZ57RBDL6');
+</script>''')
+  components.html('''<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>''')
+
 
   col3, col4, col5 = st.columns(3)
 
