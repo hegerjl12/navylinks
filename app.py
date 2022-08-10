@@ -58,7 +58,7 @@ def main():
     st_button('email', 'https://webmail.west.nmci.navy.mil/exchange/', 'Webmail West', icon_size)
     st_button('email2', 'https://portal.apps.mil/default.aspx', 'Flankspeed Portal', icon_size)
 
- components.html('''<!-- Google tag (gtag.js) -->
+  components.html('''<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
