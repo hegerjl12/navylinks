@@ -66,13 +66,7 @@ def main():
   gtag('js', new Date());
 
   gtag('config', 'G-ECZ57RBDL6');
-</script>
-
-<a title="Privacy-friendly Web Analytics" href="https://clicky.com/101376338"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
-<script async src="//static.getclicky.com/101376338.js"></script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376338ns.gif" /></p></noscript>
-
-<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>'''
+</script>'''
     
   a=os.path.dirname(st.__file__)+'/static/index.html'
   with open(a, 'r') as f:
