@@ -8,6 +8,8 @@ import pathlib
 from bs4 import BeautifulSoup
 import logging
 import shutil
+import os
+import re
 
 def inject_ga():
     GA_ID = "google_analytics"
