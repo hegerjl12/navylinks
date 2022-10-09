@@ -15,9 +15,9 @@ def main():
 
   load_css()
 
-  st.header('Navy Links')
+  st.title('Navy Links')
 
-  col1, col2 = st.columns(2)
+  col1, col2 = st.tabs(["Flight OPS", "Admin"])
 
   icon_size = 20
 
