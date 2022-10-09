@@ -68,6 +68,6 @@ def main():
 
     
 if __name__ == "__main__":
-  streamlit_analytics.start_tracking():
+  streamlit_analytics.start_tracking()
   main()
-  streamlit_analytics.stop_tracking():
+  streamlit_analytics.stop_tracking()
