@@ -4,7 +4,6 @@ import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
 import os
-import streamlit_analytics
 
    
 def main():
@@ -68,6 +67,5 @@ def main():
 
     
 if __name__ == "__main__":
-  streamlit_analytics.start_tracking()
+   
   main()
-  streamlit_analytics.stop_tracking()
