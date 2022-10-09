@@ -3,9 +3,8 @@ import streamlit as st
 import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
-import streamlit.components.v1 as components
 import os
-import re
+import streamlit_analytics
 
    
 def main():
@@ -14,25 +13,6 @@ def main():
      page_title="Navy Links",
      page_icon="🔗",  
   )
-
-  code = '''
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECZ57RBDL6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ECZ57RBDL6');
-</script>'''
-    
-  a=os.path.dirname(st.__file__)+'/static/index.html'
-  with open(a, 'r') as f:
-    data=f.read()
-   # if len(re.findall('UA-', data))==0:
-    with open(a, 'w') as ff:
-        newdata=re.sub('<head>','<head>'+code,data)
-        ff.write(newdata)
 
   load_css()
 
@@ -88,4 +68,6 @@ def main():
 
     
 if __name__ == "__main__":
+  streamlit_analytics.start_tracking():
   main()
+  streamlit_analytics.stop_tracking():
