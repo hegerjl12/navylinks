@@ -35,6 +35,11 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
     
     airports = st.text_input('Enter ICAOs')
+    metar = avwx.Metar(airports)
+    st.write(metar.station.name)
+    st.wite(metar.update())
+    st.write(metar.last_updated)
+    st.write(metar.raw)
       
   with col2:
 
