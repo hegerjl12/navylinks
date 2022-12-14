@@ -47,7 +47,7 @@ def main():
     st.write(taf.raw)
     st.write(notam.update())
     st.write(notam.last_updated)
-    for i range(len(notam.data)):
+    for i in range(len(notam.data)):
       st.write(notam.data[i].raw)
         
       
