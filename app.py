@@ -38,7 +38,7 @@ def main():
     components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=750&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=750, height=600)
    
    
-    airports = st.text_input('Enter ICAOs')
+    airports = st.text_input('Enter ICAO')
     if airports:
       metar = avwx.Metar(airports)
       taf = avwx.Taf(airports)
