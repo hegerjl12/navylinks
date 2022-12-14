@@ -47,7 +47,7 @@ def main():
     st.write(taf.raw)
     st.write(notam.update())
     st.write(notam.last_updated)
-    st.write(notam.data[0].raw)
+    st.write(notam.data.raw)
     
       
   with col2:
