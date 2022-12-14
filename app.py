@@ -4,7 +4,7 @@ import numpy as np
 from st_functions import st_button, load_css
 from PIL import Image
 import os
-
+import avwx
    
 def main():
 
@@ -33,7 +33,9 @@ def main():
     st_button('notams', 'https://www.notams.faa.gov/dinsQueryWeb/', 'NOTAMS', icon_size)
     st_button('sharp', 'https://sharp.dc3n.navy.mil/?utm_source=mnp%20public', 'SHARP', icon_size)
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
-  
+    
+    airports = st.text_input('Enter ICAOs')
+      
   with col2:
 
     st.header('Admin')
