@@ -37,7 +37,7 @@ def main():
     airports = st.text_input('Enter ICAOs')
     metar = avwx.Metar(airports)
     st.write(metar.station.name)
-    st.wite(metar.update())
+    st.write(metar.update())
     st.write(metar.last_updated)
     st.write(metar.raw)
       
