@@ -42,6 +42,7 @@ def main():
     st.write(metar.update())
     st.write(metar.last_updated)
     st.write(metar.raw)
+    st.write(taf.station.name)
     st.write(taf.update())
     st.write(taf.last_updated)
     st.write(taf.raw)
