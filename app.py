@@ -36,10 +36,19 @@ def main():
     
     airports = st.text_input('Enter ICAOs')
     metar = avwx.Metar(airports)
+    taf = avwx.Taf(airports)
+    notam = avwx.Notams(airports)
     st.write(metar.station.name)
     st.write(metar.update())
     st.write(metar.last_updated)
     st.write(metar.raw)
+    st.write(taf.update())
+    st.write(taf.last_updated)
+    st.write(taf.raw)
+    st.write(notam.update())
+    st.write(notam.last_updated)
+    st.write(notam.data[0].raw)
+    
       
   with col2:
 
