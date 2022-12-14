@@ -5,6 +5,7 @@ from st_functions import st_button, load_css
 from PIL import Image
 import os
 import avwx
+import streamlit.components.v1 as components
    
 def main():
 
@@ -51,7 +52,8 @@ def main():
     for i in range(len(notam.data)):
       st.write(notam.data[i].raw)
         
-      
+    components.iframe('https://embed.windy.com/embed2.html?lat=48.210&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=650&height=450&zoom=6&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1') 
+   
   with col2:
 
     st.header('Admin')
