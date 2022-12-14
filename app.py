@@ -36,21 +36,22 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
     
     airports = st.text_input('Enter ICAOs')
-    metar = avwx.Metar(airports)
-    taf = avwx.Taf(airports)
-    notam = avwx.Notams(airports)
-    st.write(metar.station.name)
-    st.write(metar.update())
-    st.write(metar.last_updated)
-    st.write(metar.raw)
-    st.write(taf.station.name)
-    st.write(taf.update())
-    st.write(taf.last_updated)
-    st.write(taf.raw)
-    st.write(notam.update())
-    st.write(notam.last_updated)
-    for i in range(len(notam.data)):
-      st.write(notam.data[i].raw)
+    if airports:
+      metar = avwx.Metar(airports)
+      taf = avwx.Taf(airports)
+      notam = avwx.Notams(airports)
+      st.write(metar.station.name)
+      st.write(metar.update())
+      st.write(metar.last_updated)
+      st.write(metar.raw)
+      st.write(taf.station.name)
+      st.write(taf.update())
+      st.write(taf.last_updated)
+      st.write(taf.raw)
+      st.write(notam.update())
+      st.write(notam.last_updated)
+      for i in range(len(notam.data)):
+         st.write(notam.data[i].raw)
         
     components.iframe('https://embed.windy.com/embed2.html?lat=48.210&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=650&height=450&zoom=6&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=650, height=450) 
    
