@@ -10,13 +10,13 @@ import streamlit.components.v1 as components
 def main():
 
   st.set_page_config(
-     page_title="Navy Links",
-     page_icon="🔗",  
+     page_title="SDO App",
+     page_icon="🖥️",  
   )
 
   load_css()
 
-  st.title('Navy Links')
+  st.title('SDO App')
 
   col1, col2 = st.tabs(["Flight OPS", "Admin"])
 
