@@ -68,8 +68,8 @@ def main():
          for i in range(len(notam.data)):
             st.write(notam.data[i].raw)
             
-      except ValueError:
-            st.warning("Airport Not Found") 
+      except avwx.exceptions.BadStation:
+         st.warning("Airport Not Found") 
          
   with admin:
 
