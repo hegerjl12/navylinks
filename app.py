@@ -88,10 +88,10 @@ def main():
 
   with col4:
 
-    components.iframe('https://open.spotify.com/embed/playlist/5AsAwYzcbeuoKZN17TecbB?utm_source=generator&theme=0', width=480, height=360)
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
 
-    
+  components.iframe('https://open.spotify.com/embed/playlist/5AsAwYzcbeuoKZN17TecbB?utm_source=generator&theme=0', width=480, height=360)
+  
 if __name__ == "__main__":
    
   main()
