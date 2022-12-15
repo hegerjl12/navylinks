@@ -46,26 +46,30 @@ def main():
       
       airport_list = airports.split()
       
-      metar = avwx.Metar(airport_list[0])
-      taf = avwx.Taf(airport_list[0])
-      notam = avwx.Notams(airport_list[0])
-      st.header(metar.station.name)
-      metar.update()
-     # metar.last_updated
-      st.subheader("METAR")
-      st.write(metar.raw)
-      st.subheader("TAF")
-      if taf.update():
-          st.write(taf.raw)
-      else:
-         st.write("Unavailable")
-    #  taf.last_updated
-      notam.update()
-  #    notam.last_updated
-      st.subheader("NOTAMs")
-      for i in range(len(notam.data)):
-         st.write(notam.data[i].raw)
-         
+      try:
+      
+         metar = avwx.Metar(airport_list[0])
+         taf = avwx.Taf(airport_list[0])
+         notam = avwx.Notams(airport_list[0])
+         st.header(metar.station.name)
+         metar.update()
+        # metar.last_updated
+         st.subheader("METAR")
+         st.write(metar.raw)
+         st.subheader("TAF")
+         if taf.update():
+             st.write(taf.raw)
+         else:
+            st.write("Unavailable")
+       #  taf.last_updated
+         notam.update()
+     #    notam.last_updated
+         st.subheader("NOTAMs")
+         for i in range(len(notam.data)):
+            st.write(notam.data[i].raw)
+            
+      except ValueError:
+            st.warning("Airport Not Found") 
          
   with admin:
 
