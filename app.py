@@ -18,23 +18,37 @@ def main():
 
   st.title('SDO App')
 
-  col1, col2, spotify = st.tabs(["Flight OPS", "Admin", "Spotify"])
+  flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
 
   icon_size = 20
 
   
 
-  with col1:   
+  with flightops:   
 
     st.header('Flight Ops')
 
-    components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)
+    components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
+      
+    st_button('safety', 'https://asap.safety.af.mil/#/', 'ASAP', icon_size)
+    st_button('card', 'https://aircardsys.com/cgi-bin/fbo_locate', 'Air Card FBO Locator', icon_size)
+    st_button('adds', 'https://aviationweather.gov/adds/', 'ADDS Weather', icon_size)
+    st_button('schedule', 'https://dcast.cds.disa.mil', 'DCAST', icon_size)
+    st_button('wx', 'https://fwb.metoc.navy.mil/', 'Navy Flight Weather Briefer', icon_size)
+    st_button('notams', 'https://www.notams.faa.gov/dinsQueryWeb/', 'NOTAMS', icon_size)
+    st_button('sharp', 'https://sharp.dc3n.navy.mil/?utm_source=mnp%20public', 'SHARP', icon_size)
+    st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
+   
+  with wxdata:
    
     airports = st.text_input('Enter ICAO')
     if airports:
-      metar = avwx.Metar(airports)
-      taf = avwx.Taf(airports)
-      notam = avwx.Notams(airports)
+      
+      airport_list = airports.split()
+      
+      metar = avwx.Metar(airport_list[0])
+      taf = avwx.Taf(airport_list[0])
+      notam = avwx.Notams(airport_list[0])
       st.write(metar.station.name)
       st.write(metar.update())
       st.write(metar.last_updated)
@@ -47,18 +61,7 @@ def main():
       st.write(notam.last_updated)
       for i in range(len(notam.data)):
          st.write(notam.data[i].raw)
-      
-      
-    st_button('safety', 'https://asap.safety.af.mil/#/', 'ASAP', icon_size)
-    st_button('card', 'https://aircardsys.com/cgi-bin/fbo_locate', 'Air Card FBO Locator', icon_size)
-    st_button('adds', 'https://aviationweather.gov/adds/', 'ADDS Weather', icon_size)
-    st_button('schedule', 'https://dcast.cds.disa.mil', 'DCAST', icon_size)
-    st_button('wx', 'https://fwb.metoc.navy.mil/', 'Navy Flight Weather Briefer', icon_size)
-    st_button('notams', 'https://www.notams.faa.gov/dinsQueryWeb/', 'NOTAMS', icon_size)
-    st_button('sharp', 'https://sharp.dc3n.navy.mil/?utm_source=mnp%20public', 'SHARP', icon_size)
-    st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
-   
-  with col2:
+  with admin:
 
     st.header('Admin')
 
