@@ -87,6 +87,8 @@ def main():
   col3, col4, col5 = st.columns(3)
 
   with col4:
+
+    st.components('https://open.spotify.com/embed/playlist/5AsAwYzcbeuoKZN17TecbB?utm_source=generator&theme=0')
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
 
     
