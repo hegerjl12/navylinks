@@ -49,12 +49,12 @@ def main():
       metar = avwx.Metar(airport_list[0])
       taf = avwx.Taf(airport_list[0])
       notam = avwx.Notams(airport_list[0])
-      st.write(metar.station.name)
+      st.header(metar.station.name)
       metar.update()
      # metar.last_updated
-      st.write("METAR")
+      st.subheader("METAR")
       st.write(metar.raw)
-      st.write("TAF")
+      st.subheader("TAF")
       if taf.update():
           st.write(taf.raw)
       else:
@@ -62,7 +62,7 @@ def main():
     #  taf.last_updated
       notam.update()
   #    notam.last_updated
-      st.write("NOTAMs")
+      st.subheader("NOTAMs")
       for i in range(len(notam.data)):
          st.write(notam.data[i].raw)
          
