@@ -51,15 +51,17 @@ def main():
       notam = avwx.Notams(airport_list[0])
       st.write(metar.station.name)
       metar.update()
-      metar.last_updated
+     # metar.last_updated
       st.write("METAR")
       st.write(metar.raw)
       st.write("TAF")
       if taf.update():
           st.write(taf.raw)
-      taf.last_updated
+      else:
+         st.write("Unavailable")
+    #  taf.last_updated
       notam.update()
-      notam.last_updated
+  #    notam.last_updated
       st.write("NOTAMs")
       for i in range(len(notam.data)):
          st.write(notam.data[i].raw)
