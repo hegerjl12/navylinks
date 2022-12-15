@@ -69,7 +69,7 @@ def main():
             st.write(notam.data[i].raw)
             
       except avwx.exceptions.BadStation:
-         st.warning("Airport Not Found") 
+         st.error("Airport Not Found") 
          
   with admin:
 
