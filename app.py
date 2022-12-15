@@ -18,7 +18,7 @@ def main():
 
   st.title('SDO App')
 
-  col1, col2 = st.tabs(["Flight OPS", "Admin"])
+  col1, col2, spotify = st.tabs(["Flight OPS", "Admin", "Spotify"])
 
   icon_size = 20
 
@@ -83,14 +83,14 @@ def main():
     st_button('email', 'https://webmail.west.nmci.navy.mil/exchange/', 'Webmail West', icon_size)
     st_button('email2', 'https://portal.apps.mil/default.aspx', 'Flankspeed Portal', icon_size)
 
-
+  with spotify:
+    components.iframe('https://open.spotify.com/embed/playlist/5AsAwYzcbeuoKZN17TecbB?utm_source=generator&theme=0', width=700, height=360)
+    
   col3, col4, col5 = st.columns(3)
 
   with col4:
 
     st_button('cup', 'https://www.buymeacoffee.com/hegerjl', 'Buy me a Coffee', icon_size)
-
-  components.iframe('https://open.spotify.com/embed/playlist/5AsAwYzcbeuoKZN17TecbB?utm_source=generator&theme=0', width=700, height=360)
   
 if __name__ == "__main__":
    
