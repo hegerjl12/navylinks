@@ -50,17 +50,21 @@ def main():
       taf = avwx.Taf(airport_list[0])
       notam = avwx.Notams(airport_list[0])
       st.write(metar.station.name)
-      st.write(metar.update())
-      st.write(metar.last_updated)
+      metar.update()
+      metar.last_updated
+      st.write("METAR")
       st.write(metar.raw)
-      st.write(taf.station.name)
-      st.write(taf.update())
-      st.write(taf.last_updated)
-      st.write(taf.raw)
-      st.write(notam.update())
-      st.write(notam.last_updated)
+      st.write("TAF")
+      if taf.update():
+          st.write(taf.raw)
+      taf.last_updated
+      notam.update()
+      notam.last_updated
+      st.write("NOTAMs")
       for i in range(len(notam.data)):
          st.write(notam.data[i].raw)
+         
+         
   with admin:
 
     st.header('Admin')
