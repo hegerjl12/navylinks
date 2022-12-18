@@ -50,7 +50,7 @@ def main():
       
       try:
          
-         for i in number_icaos:
+         for i in len(number_icaos):
 
           metar = avwx.Metar(airport_list[0])
           taf = avwx.Taf(airport_list[0])
