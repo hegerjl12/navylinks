@@ -41,35 +41,39 @@ def main():
    
   with wxdata:
    
-    airports = st.text_input('Enter ICAO')
+    airports = st.text_input('Enter ICAOs')
     if airports:
       
       airport_list = airports.split()
       
       try:
-      
-         metar = avwx.Metar(airport_list[0])
-         taf = avwx.Taf(airport_list[0])
-         notam = avwx.Notams(airport_list[0])
-         st.header(metar.station.name)
-         metar.update()
-        # metar.last_updated
-         st.subheader("METAR")
-         st.write(metar.raw)
-         st.subheader("TAF")
-         if taf.update():
-             st.write(taf.raw)
-         else:
-            st.write("Unavailable")
-       #  taf.last_updated
-         notam.update()
-     #    notam.last_updated
-         st.subheader("NOTAMs")
-         for i in range(len(notam.data)):
-            st.write(notam.data[i].raw)
+         
+         for i in range(len(airport_list)):
+
+          metar = avwx.Metar(airport_list[i])
+          taf = avwx.Taf(airport_list[i])
+          notam = avwx.Notams(airport_list[i])
+          st.header(metar.station.name)
+          metar.update()
+          # metar.last_updated
+          st.subheader("METAR")
+          st.write(metar.raw)
+          st.subheader("TAF")
+          if taf.update():
+              st.write(taf.raw)
+          else:
+              st.write("Unavailable")
+        #  taf.last_updated
+          notam.update()
+      #    notam.last_updated
+          st.subheader("NOTAMs")
+          for j in range(len(notam.data)):
+              st.write(notam.data[j].raw)
+            
+          st.markdown("---")
             
       except avwx.exceptions.BadStation:
-         st.error("Airport Not Found") 
+         st.error("Airport " + airport_list[i] + " Not Found") 
          
   with admin:
 
