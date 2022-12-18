@@ -41,7 +41,7 @@ def main():
    
   with wxdata:
    
-    airports = st.text_input('Enter ICAO')
+    airports = st.text_input('Enter ICAOs')
     if airports:
       
       airport_list = airports.split()
@@ -70,8 +70,10 @@ def main():
           for j in range(len(notam.data)):
               st.write(notam.data[j].raw)
             
+         st.markdown("---")
+            
       except avwx.exceptions.BadStation:
-         st.error("Airport Not Found") 
+         st.error("Airport " + airport_list[i] + " Not Found") 
          
   with admin:
 
