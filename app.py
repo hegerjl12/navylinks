@@ -50,9 +50,9 @@ def main():
          
          for i in range(len(airport_list)):
 
-          metar = avwx.Metar(airport_list[0])
-          taf = avwx.Taf(airport_list[0])
-          notam = avwx.Notams(airport_list[0])
+          metar = avwx.Metar(airport_list[i])
+          taf = avwx.Taf(airport_list[i])
+          notam = avwx.Notams(airport_list[i])
           st.header(metar.station.name)
           metar.update()
           # metar.last_updated
@@ -67,8 +67,8 @@ def main():
           notam.update()
       #    notam.last_updated
           st.subheader("NOTAMs")
-          for i in range(len(notam.data)):
-              st.write(notam.data[i].raw)
+          for j in range(len(notam.data)):
+              st.write(notam.data[j].raw)
             
       except avwx.exceptions.BadStation:
          st.error("Airport Not Found") 
