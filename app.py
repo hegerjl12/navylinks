@@ -45,12 +45,10 @@ def main():
     if airports:
       
       airport_list = airports.split()
-
-      number_icaos = len(airport_list)
       
       try:
          
-         for i in len(number_icaos):
+         for i in range(len(airport_list)):
 
           metar = avwx.Metar(airport_list[0])
           taf = avwx.Taf(airport_list[0])
