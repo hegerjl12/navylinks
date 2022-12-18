@@ -70,7 +70,7 @@ def main():
           for j in range(len(notam.data)):
               st.write(notam.data[j].raw)
             
-         st.markdown("---")
+          st.markdown("---")
             
       except avwx.exceptions.BadStation:
          st.error("Airport " + airport_list[i] + " Not Found") 
