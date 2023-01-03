@@ -41,7 +41,7 @@ def main():
    
   with wxdata:
    
-    airports = st.text_input(label='Enter ICAOs', value='KNUW KPAE KBLI KPDX KSKA KMWH)
+    airports = st.text_input(label='Enter ICAOs', value='KNUW KPAE KBLI KPDX KSKA KMWH')
     if airports:
       
       airport_list = airports.split()
