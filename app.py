@@ -16,7 +16,7 @@ def main():
 
   load_css()
 
-  st.title('SDO App')
+  st.title('SDO')
 
   flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
 
