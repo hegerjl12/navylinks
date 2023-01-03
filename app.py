@@ -10,7 +10,7 @@ import streamlit.components.v1 as components
 def main():
 
   st.set_page_config(
-     page_title="SDO App",
+     page_title="SDO",
      page_icon="🖥️",  
   )
 
