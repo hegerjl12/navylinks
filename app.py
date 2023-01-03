@@ -15,7 +15,7 @@ def add_bg_from_local(image_file):
     f"""
     <style>
     .stApp {{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
         background-size: cover
     }}
     </style>
@@ -32,7 +32,7 @@ def main():
 
   load_css()
    
-  add_bg_from_local('growler.png')
+  add_bg_from_local('growler.jpg')
 
   st.title('SDO')
 
