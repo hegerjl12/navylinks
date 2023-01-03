@@ -32,7 +32,7 @@ def main():
 
   load_css()
    
-  add_bg_from_local('growler.jpg')
+  add_bg_from_local('growler.JPG')
 
   st.title('SDO')
 
