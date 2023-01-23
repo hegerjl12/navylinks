@@ -41,22 +41,21 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
    
   with wxdata:
-    local = st.selectbox('Select operating area', ('Whidbey Island', 'Nellis', 'Custom'))
-    if local.lower() == 'whidbey island':
-        local_airfields = 'KNUW KPAE KBLI KPDX KSKA KMWH'
-    elif local.lower() == 'nellis':
-        local_airfields = 'KLSV KLAS KTPH KSGU KHIF KNID'
-    elif local.lower() == 'custom':
-        local_airfields = ''
-    else:
-        local_airfields = ''
-    airports = st.text_input(label='Enter ICAOs', value=local_airfields)
+    local_airfields = {
+        'Whidbey Island': 'KNUW KPAE KBLI KPDX KSKA KMWH',
+        'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
+        'Custom': ''
+    }
+    local = st.selectbox('Select operating area', (local_airfields.keys()))
+    airports = st.text_input(label='Enter ICAOs', value=local_airfields[local])
     if airports:
       
       airport_list = airports.split()
       
       try:
-         
+         st.header('Direct Printable Links')
+         st_button('navfit', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
+         st.markdown('---')
          for i in range(len(airport_list)):
 
           metar = avwx.Metar(airport_list[i])
