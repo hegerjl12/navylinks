@@ -32,9 +32,11 @@ def main():
 
   with flightops:   
 
-
-    components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
-      
+    if local == "Whidbey Island":
+        components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
+    if local == "Nellis":
+        components.iframe('https://embed.windy.com/embed2.html?lat=37.484&lon=-116.367&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
+        
     st_button('safety', 'https://asap.safety.af.mil/#/', 'ASAP', icon_size)
     st_button('card', 'https://aircardsys.com/cgi-bin/fbo_locate', 'Air Card FBO Locator', icon_size)
     st_button('adds', 'https://aviationweather.gov/adds/', 'ADDS Weather', icon_size)
