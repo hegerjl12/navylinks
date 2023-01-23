@@ -19,8 +19,6 @@ def main():
 
   st.title('SDO')
 
-  flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
-
   icon_size = 20
 
   local_airfields = {
@@ -29,6 +27,8 @@ def main():
         'Custom': ''
     }
   local = st.selectbox('Select operating area', (local_airfields.keys()))
+    
+  flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
 
   with flightops:   
 
