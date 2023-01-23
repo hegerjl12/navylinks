@@ -55,7 +55,7 @@ def main():
       
       try:
          st.header('Direct Printable Links')
-         st_button('wx', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
+         st_button('adds', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
          st.markdown('---')
          for i in range(len(airport_list)):
 
