@@ -26,7 +26,7 @@ def main():
         'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
         'Custom': ''
     }
-  local = st.selectbox('Select operating area', (local_airfields.keys()))
+  local = st.selectbox('Select Operating Area', (local_airfields.keys()))
     
   flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
 
