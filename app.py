@@ -68,9 +68,11 @@ def main():
           notam.update()
       #    notam.last_updated
           st.subheader("NOTAMs")
-          for j in range(len(notam.data)):
-              st.write(notam.data[j].raw)
-            
+          if notam.data:
+              for j in range(len(notam.data)):
+                  st.write(notam.data[j].raw)
+          else:
+              st.write(f"No NOTAM data found for {airport_list[i]}"
           st.markdown("---")
             
       except avwx.exceptions.BadStation:
