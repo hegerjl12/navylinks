@@ -42,7 +42,7 @@ def main():
    
   with wxdata:
     local_airfields = {
-        'Whidbey Island': 'KNUW KPAE KBLI KPDX KSKA KMWH',
+        'Whidbey Island': 'KNUW KPAE KTCM KBLI KPDX KSKA KMWH KYKM',
         'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
         'Custom': ''
     }
@@ -54,7 +54,7 @@ def main():
       
       try:
          st.header('Direct Printable Links')
-         st_button('navfit', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
+         st_button('wx', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
          st.markdown('---')
          for i in range(len(airport_list)):
 
