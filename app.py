@@ -23,11 +23,15 @@ def main():
 
   icon_size = 20
 
-  
+  local_airfields = {
+        'Whidbey Island': 'KNUW KPAE KTCM KBLI KPDX KSKA KMWH KYKM',
+        'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
+        'Custom': ''
+    }
+  local = st.selectbox('Select operating area', (local_airfields.keys()))
 
   with flightops:   
 
-    st.header('Flight Ops')
 
     components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
       
@@ -41,12 +45,7 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
    
   with wxdata:
-    local_airfields = {
-        'Whidbey Island': 'KNUW KPAE KTCM KBLI KPDX KSKA KMWH KYKM',
-        'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
-        'Custom': ''
-    }
-    local = st.selectbox('Select operating area', (local_airfields.keys()))
+    
     airports = st.text_input(label='Enter ICAOs', value=local_airfields[local])
     if airports:
       
