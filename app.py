@@ -41,8 +41,16 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
    
   with wxdata:
-   
-    airports = st.text_input(label='Enter ICAOs', value='KNUW KPAE KBLI KPDX KSKA KMWH')
+    local = st.selectbox('Select operating area', ('Whidbey Island', 'Nellis', 'Custom'))
+    if local.lower() == 'whidbey island':
+        local_airfields = 'KNUW KPAE KBLI KPDX KSKA KMWH'
+    elif local.lower() == 'nellis':
+        local_airfields = 'KLSV KLAS KTPH KSGU KHIF KNID'
+    elif local.lower() == 'custom':
+        local_airfields = ''
+    else:
+        local_airfields = ''
+    airports = st.text_input(label='Enter ICAOs', value=local_airfields)
     if airports:
       
       airport_list = airports.split()
@@ -72,7 +80,7 @@ def main():
               for j in range(len(notam.data)):
                   st.write(notam.data[j].raw)
           else:
-              st.write(f"No NOTAM data found for {airport_list[i]}"
+              st.write(f"No NOTAM data found for {airport_list[i]}")
           st.markdown("---")
             
       except avwx.exceptions.BadStation:
