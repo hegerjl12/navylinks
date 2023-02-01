@@ -62,7 +62,7 @@ def main():
              metar = avwx.Metar(airport_list[i])
              taf = avwx.Taf(airport_list[i])
              notam = avwx.Notams(airport_list[i])
-             with st.expander(metar.station.name, expanded=expanded_airports): 
+             with st.expander(metar.station.name, expanded=expand_airports): 
              #st.header(metar.station.name)
                metar.update()
                # metar.last_updated
