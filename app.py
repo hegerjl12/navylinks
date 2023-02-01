@@ -57,7 +57,7 @@ def main():
          st.header('Direct Printable Links')
          st_button('adds', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
          st.markdown('---')
-         expand_airports = st.checkbox("Expand all Airfields", value=true)
+         expand_airports = st.checkbox("Expand all Airfields", value=True)
          for i in range(len(airport_list)):
              metar = avwx.Metar(airport_list[i])
              taf = avwx.Taf(airport_list[i])
