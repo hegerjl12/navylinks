@@ -57,32 +57,33 @@ def main():
          st.header('Direct Printable Links')
          st_button('adds', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
          st.markdown('---')
+         expand_airports = st.checkbox("Expand all Airfields", value=true)
          for i in range(len(airport_list)):
+             metar = avwx.Metar(airport_list[i])
+             taf = avwx.Taf(airport_list[i])
+             notam = avwx.Notams(airport_list[i])
+             with st.expander(metar.station.name, expanded=expanded_airports): 
+             #st.header(metar.station.name)
+               metar.update()
+               # metar.last_updated
+               st.subheader("METAR")
+               st.write(metar.raw)
+               st.subheader("TAF")
+               if taf.update():
+                 st.write(taf.raw)
+               else:
+                 st.write("Unavailable")
+            #  taf.last_updated
+               notam.update()
+          #    notam.last_updated
+               st.subheader("NOTAMs")
+               if notam.data:
+                 for j in range(len(notam.data)):
+                   st.write(notam.data[j].raw)
+               else:
+                 st.write(f"No NOTAM data found for {airport_list[i]}")
+               st.markdown("---")
 
-          metar = avwx.Metar(airport_list[i])
-          taf = avwx.Taf(airport_list[i])
-          notam = avwx.Notams(airport_list[i])
-          st.header(metar.station.name)
-          metar.update()
-          # metar.last_updated
-          st.subheader("METAR")
-          st.write(metar.raw)
-          st.subheader("TAF")
-          if taf.update():
-              st.write(taf.raw)
-          else:
-              st.write("Unavailable")
-        #  taf.last_updated
-          notam.update()
-      #    notam.last_updated
-          st.subheader("NOTAMs")
-          if notam.data:
-              for j in range(len(notam.data)):
-                  st.write(notam.data[j].raw)
-          else:
-              st.write(f"No NOTAM data found for {airport_list[i]}")
-          st.markdown("---")
-            
       except avwx.exceptions.BadStation:
          st.error("Airport " + airport_list[i] + " Not Found") 
          
