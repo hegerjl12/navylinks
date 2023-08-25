@@ -6,30 +6,37 @@ from PIL import Image
 import os
 import avwx
 import streamlit.components.v1 as components
+    
    
 def main():
 
   st.set_page_config(
-     page_title="SDO App",
+     page_title="SDO",
      page_icon="🖥️",  
   )
 
   load_css()
 
-  st.title('SDO App')
-
-  flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
+  st.title('SDO')
 
   icon_size = 20
 
-  
+  local_airfields = {
+        'Whidbey Island': 'KNUW KPAE KTCM KBLI KPDX KSKA KMWH KYKM',
+        'Nellis': 'KLSV KLAS KTPH KSGU KHIF KNID',
+        'Custom': ''
+    }
+  local = st.selectbox('Select Operating Area', (local_airfields.keys()))
+    
+  flightops, wxdata, admin, spotify = st.tabs(["Flight OPS", "METAR/TAF/NOTAMs", "Admin", "Spotify"])
 
   with flightops:   
 
-    st.header('Flight Ops')
-
-    components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
-      
+    if local == "Whidbey Island":
+        components.iframe('https://embed.windy.com/embed2.html?lat=48.283&lon=-122.695&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
+    if local == "Nellis":
+        components.iframe('https://embed.windy.com/embed2.html?lat=37.484&lon=-116.367&detailLat=37.751&detailLon=-97.822&width=700&height=600&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0F&radarRange=-1', width=700, height=600)      
+        
     st_button('safety', 'https://asap.safety.af.mil/#/', 'ASAP', icon_size)
     st_button('card', 'https://aircardsys.com/cgi-bin/fbo_locate', 'Air Card FBO Locator', icon_size)
     st_button('adds', 'https://aviationweather.gov/adds/', 'ADDS Weather', icon_size)
@@ -40,38 +47,43 @@ def main():
     st_button('sky', 'https://skyvector.com/', 'Skyvector', icon_size)
    
   with wxdata:
-   
-    airports = st.text_input(label='Enter ICAOs', value='KNUW KPAE KBLI KPDX KSKA KMWH')
+    
+    airports = st.text_input(label='Enter ICAOs', value=local_airfields[local])
     if airports:
       
       airport_list = airports.split()
       
       try:
-         
+         st.header('Direct Printable Links')
+         st_button('adds', 'https://www.aviationweather.gov/metar/data?ids='+airports.replace(' ', '+')+'&format=raw&date=&hours=0&taf=on', 'METAR & TAF', icon_size)
+         st.markdown('---')
+         expand_airports = st.checkbox("Expand all Airfields", value=True)
          for i in range(len(airport_list)):
+             metar = avwx.Metar(airport_list[i])
+             taf = avwx.Taf(airport_list[i])
+             notam = avwx.Notams(airport_list[i])
+             with st.expander(metar.station.name, expanded=expand_airports): 
+             #st.header(metar.station.name)
+               metar.update()
+               # metar.last_updated
+               st.subheader("METAR")
+               st.write(metar.raw)
+               st.subheader("TAF")
+               if taf.update():
+                 st.write(taf.raw)
+               else:
+                 st.write("Unavailable")
+            #  taf.last_updated
+               notam.update()
+          #    notam.last_updated
+               st.subheader("NOTAMs")
+               if notam.data:
+                 for j in range(len(notam.data)):
+                   st.write(notam.data[j].raw)
+               else:
+                 st.write(f"No NOTAM data found for {airport_list[i]}")
+               st.markdown("---")
 
-          metar = avwx.Metar(airport_list[i])
-          taf = avwx.Taf(airport_list[i])
-          notam = avwx.Notams(airport_list[i])
-          st.header(metar.station.name)
-          metar.update()
-          # metar.last_updated
-          st.subheader("METAR")
-          st.write(metar.raw)
-          st.subheader("TAF")
-          if taf.update():
-              st.write(taf.raw)
-          else:
-              st.write("Unavailable")
-        #  taf.last_updated
-          notam.update()
-      #    notam.last_updated
-          st.subheader("NOTAMs")
-          for j in range(len(notam.data)):
-              st.write(notam.data[j].raw)
-            
-          st.markdown("---")
-            
       except avwx.exceptions.BadStation:
          st.error("Airport " + airport_list[i] + " Not Found") 
          
