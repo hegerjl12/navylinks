@@ -12,6 +12,7 @@ streamlit = "^1.26.0"
 numpy = "^1.25.2"
 gunicorn = "^21.2.0"
 avwx-engine = "^1.8.18"
+watchdog = "^3.0.0"
 
 
 [build-system]
